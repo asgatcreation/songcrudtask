@@ -20,6 +20,8 @@ class Artiste(models.Model):
     
     class Meta:
         ordering = ('first_name','last_name')
+        verbose_name = ("Artiste")
+        verbose_name_plural = ("Artistes")
      
         
 
@@ -41,6 +43,8 @@ class Song(models.Model):
         
     class Meta:
         ordering = ('title',)
+        verbose_name = ("Song")
+        verbose_name_plural = ("Songs")
 
 class Lyric(models.Model):
     song_id  = models.ForeignKey(Song, on_delete=models.CASCADE)
@@ -56,5 +60,7 @@ class Lyric(models.Model):
     
     class Meta:
         ordering = ('song_id',)
+        verbose_name = ("Lyric")
+        verbose_name_plural = ("Lyrics")
     # # def lyric():
     #     return song_id    
