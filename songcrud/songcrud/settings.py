@@ -44,9 +44,12 @@ INSTALLED_APPS = [
     
     #3rd Party.
     'django_extensions',
+    'rest_framework',
     
     #Local Apps
     'musicapp.apps.MusicappConfig',
+    
+    'api.apps.ApiConfig'
 ]
 
 MIDDLEWARE = [
@@ -133,3 +136,12 @@ STATICFILES_DIRS = [BASE_DIR/'static']
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES":(
+      "rest_framework.authentication.SessionAuthentication",
+      #"rest_framework.authentication.Basicauthentication",
+      "rest_framework.authentication.TokenAuthentication",  
+    )
+}

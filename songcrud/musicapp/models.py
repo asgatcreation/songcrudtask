@@ -56,7 +56,8 @@ class Lyric(models.Model):
     
     def __str__(self):
         # return HttpResponse({song_id})        
-        return str(self.song_id)
+        #return str(self.song_id)
+        return f' {self.song_id} song lyric'
     
     class Meta:
         ordering = ('song_id',)

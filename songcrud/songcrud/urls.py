@@ -15,8 +15,33 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from musicapp import views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    path('api-auth/', include('rest_framework.urls')),
+    
+    #path('', include('.musicapp.views.artiste_list')),
+    
+    path('artistelist/', views.artiste_list),
+    
+    path('artistelist/<int:id>', views.artiste_detail),
+    
+    path('songlist/', views.song_list),
+    path('songlist/<int:id>', views.song_detail),
+    
+    path('lyriclist/', views.lyric_list),
+    path('lyriclist/<int:id>', views.lyric_detail),
+    
+    #path('api/', include('api.urls')),
+    
+    # path('api/, include('api.urls')),
+    
     path('', include('musicapp.urls')),
+    
+    
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
